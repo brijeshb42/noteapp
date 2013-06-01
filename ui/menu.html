@@ -1,0 +1,47 @@
+<div class="masthead">
+<ul id="main-menu" class="nav nav-pills pull-right">
+  <check if="{{ @URI==@BASE.'/' }}">
+      <true>
+      <li class="active"><a href="{{ @BASE }}/"><i class="icon icon-home"></i>&nbsp;Home</a></li>
+      </true>
+      <false>
+      <li><a href="{{ @BASE }}/"><i class="icon icon-home"></i>&nbsp;Home</a></li>
+      </false>
+  </check>
+  <check if="{{ @loggedin }}">
+  <true>
+    <check if="{{ @URI==@BASE.'/account' }}">
+      <true>
+      <li class="active"><a href="{{ @BASE }}/account"><i class="icon icon-user"></i>&nbsp;{{isset(@SESSION.username)?(@SESSION.username):('')}}</a></a></li>
+      </true>
+      <false>
+      <li><a href="{{ @BASE }}/account"><i class="icon icon-user"></i>&nbsp;{{isset(@SESSION.username)?(@SESSION.username):('')}}</a></li>
+      </false>
+    </check>
+    <li><a href="{{ @BASE }}/logout">Logout</a></li>
+  </true>
+  <false>
+    <check if="{{ @URI==@BASE.'/login' }}">
+      <true>
+      <li class="active"><a href="{{ @BASE }}/login">Login</a></li>
+      </true>
+      <false>
+      <li><a href="{{ @BASE }}/login">Login</a></li>
+      </false>
+    </check>
+    <check if="{{ @URI==@BASE.'/signup' }}">
+      <true>
+      <li class="active"><a href="{{ @BASE }}/signup">Sign Up</a></li>
+      </true>
+      <false>
+      <li><a href="{{ @BASE }}/signup">Sign Up</a></li>
+      </false>
+    </check>
+    </check>
+  </false>
+  </check>
+</ul>
+<h3 class="muted"><a href="{{ @BASE }}/">{{ @site }}</a></h3>
+</div>
+<hr>
+{{ isset(@SESSION.message)?('<div id="session-message" class="alert alert-'.@SESSION.messagetype.'">'.@SESSION.message.'<button type="button" class="close" data-dismiss="alert">×</button></div>'):'' }}

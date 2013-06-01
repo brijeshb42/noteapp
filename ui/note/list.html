@@ -1,0 +1,14 @@
+<div class="note-list">
+	<repeat group="{{ @list }}" value="{{ @item }}">
+		<div class="list-item" id="item-{{ @item.id }}">
+			<p data-val={{ @item.id }}>{{ Base::instance()->decode(@item.item_text) }}</p>
+			<div class="btn-toolbar controls">
+				<div class="btn-group">
+					<button data-val={{ @item.id }} data-url="{{ @BASE }}/note/edit/{{ @item.id }}" class="item-edit btn" title="Edit"><i class="icon icon-edit"></i></button>
+					<button data-val={{ @item.id }} data-url="{{ @BASE }}/note/delete/{{ @item.id }}" class="item-delete btn btn-warning" title="Delete"><i class="icon icon-remove"></i></button>
+					<button data-val={{ @item.id }} data-url="{{ @BASE }}/note/changecolor/{{ @item.id }}" class="item-move btn" title="Reorder"><i class="icon icon-move"></i></button>
+				</div>
+			</div>
+		</div>
+	</repeat>
+</div>

@@ -1,0 +1,6 @@
+<div class="new-note view-note">
+	<small><i class="icon icon-calendar"></i>&nbsp;Posted&nbsp;On&nbsp;<b>{{date('M d, Y',strtotime(@item.created))}}</b></small>
+	<div class="note" id="note-{{ @item.id }}">
+		{{ Base::instance()->decode(@item.item_text) }}
+	</div>
+</div>

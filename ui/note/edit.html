@@ -1,0 +1,14 @@
+<div class="new-note">
+	<form action="{{@BASE}}/note/edit/{{@item.id}}" method="POST" id="note-form">
+		<input autocomplete="off" type="text" name="newnote" id="newnote" value="{{@item.item_text}}" />
+		<input type="hidden" name="user_id" value="{{ isset(@SESSION.uid)?(@SESSION.uid):(@item.user_id) }}" />
+		<input type="hidden" name="item_id" value="{{@item.id}}" />
+		<p class="submit">
+			{{ isset(@error_note)?('<span class="error">'.@error_note.'</span>'):'' }}
+      		<button type="submit" value="submit" name="submit" id="submit" class="btn btn-inverse">
+      			<i class="icon icon-white icon-plus-sign"></i>
+      			Update Note
+      		</button>
+    	</p>
+	</form>
+</div>

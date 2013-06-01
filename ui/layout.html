@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <base href="{{ @SCHEME.'://'.@HOST.@BASE.'/'.@UI }}" />
+		<meta charset="{{ @ENCODING }}" />
+		<title>{{ @site.' | '.@title }}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<meta name="description" content="">
+    	<meta name="author" content="{{isset(@SESSION.username)?(@SESSION.username):('GUEST')}}">
+        <meta name="generator" content="Customised Blog">
+		<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="css/theme.css" type="text/css" />
+		<link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css" />
+	</head>
+	<body>
+	  <div class="container-narrow">
+
+      <include href="menu.html" />
+      <include href="{{ @inc }}" />
+      <include href="footer.html" />
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    	baseUrl = {{@BASE}}/;
+    </script>
+    <check if="@loggedin">
+		<true>
+			<script type="text/javascript" src="js/loggedin.js"></script>
+		</true>
+    </check>
+    {{ isset(@script)?('<script type="text/javascript" src="js/'.@script.'"></script>'):('') }}
+	</body>
+</html>

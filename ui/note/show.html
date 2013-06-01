@@ -1,0 +1,12 @@
+<div class="span12">
+<check if="{{ isset(@view) }}">
+	<true>
+		<include href="'note/'.{{ @view }}" />
+	</true>
+</check>
+<check if="{{ isset(@list) }}">
+	<true>
+		<include href="note/list.html" />
+	</true>
+</check>
+</div>
