@@ -1,1 +1,0 @@
-<?php echo isset($vars)?(json_encode($vars)):('{"type":"error","message":"Wrong method"}'); ?>
